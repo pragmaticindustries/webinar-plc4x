@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * Simple Demo how to use PLC4X.
+ * Simple Demo how to read from either Siemens S7 or OPC UA Server without changing code (Single API).
  *
  * @author julian
  * Created by julian on 01.04.20

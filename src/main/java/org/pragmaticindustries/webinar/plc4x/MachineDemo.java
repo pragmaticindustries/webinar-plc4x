@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * Simple Demo how to use PLC4X.
+ * Demo how to read multiple addresses from a PLC with one command.
  *
  * @author julian
  * Created by julian on 01.04.20
