@@ -22,15 +22,16 @@ public class OpcDemo {
     public static void main(String[] args) {
         PlcDriverManager driverManager = new PlcDriverManager();
 
-        try (PlcConnection connection = driverManager.getConnection("s7://192.168.167.210/1/1")) {
+        try (PlcConnection connection = driverManager.getConnection("opcua:tcp://10.8.0.2:53530/opcua/SimulationServer?discovery=false&username=tester&password=test1234")) {
             logger.info("Verbindung ist aufgebaut...");
 
             // Send Read Request
             CompletableFuture<? extends PlcReadResponse> requestFuture = connection.readRequestBuilder()
-                .addItem("position", "%DB444:0.0:REAL")
-                .addItem("rand_val", "%DB444:4.0:REAL")
-                .addItem("motor-current", "%DB444:8.0:REAL")
-                .addItem("not-existing-field", "%DB555:8.0:REAL")
+                .addItem("Counter", "ns=5;s=Counter1")
+                .addItem("Sinus", "ns=5;s=Sinusoid1")
+                .addItem("Sägezahn", "ns=5;s=Sawtooth1")
+                .addItem("Dreieck", "ns=5;s=Triangle1")
+                .addItem("not-existing-field", "ns=5;s=Triangle2")
                 .build()
                 .execute();
             logger.info("Anfrage gesendet...");
